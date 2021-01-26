@@ -24,15 +24,28 @@ const getRecipes = async (searchTerm) => {
   }
 }
 
+// Receive response.data.hits, iterate over it and render
+// label, image, dietLabels[array], healthLabels[array],
+// ingredientLines[array], source, url
 const renderRecipes = (recipeData) => {
   let listAnchor = document.querySelector('#recipe-data')
   for (let i = 0; i < recipeData.length; i++) {
     let recipeDiv = document.createElement('div')
     recipeDiv.class = 'recipe-bucket'
     listAnchor.append(recipeDiv)
+
     let recipeLabel = document.createElement('h4')
     recipeLabel.textContent = recipeData[i].recipe.label
     recipeDiv.append(recipeLabel)
+
+    let recipeImage = document.createElement('img')
+    recipeImage.src = `${recipeData[i].recipe.image}`
+    recipeDiv.append(recipeImage)
+
+    let recipeURL = document.createElement('a')
+    recipeURL.href = recipeData[i].recipe.url
+    recipeURL.textContent = recipeData[i].recipe.source
+    recipeDiv.append(recipeURL)
   }
 }
 
