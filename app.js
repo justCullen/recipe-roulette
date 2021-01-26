@@ -39,20 +39,20 @@ const renderRecipes = (recipeData) => {
     recipeDiv.append(recipeLabel)
 
     let recipeImage = document.createElement('img')
-    recipeImage.src = `${recipeData[i].recipe.image}`
+    recipeImage.src = recipeData[i].recipe.image
     recipeDiv.append(recipeImage)
 
     let recipeDiet = document.createElement('h5')
-    recipeDiet.textContent = recipeData[i].recipe.dietLabels.join(', ')
+    recipeDiet.textContent = recipeData[i].recipe.dietLabels.join("\r\n")
     recipeDiv.append(recipeDiet)
 
     let recipeHealth = document.createElement('h5')
-    recipeHealth.textContent = recipeData[i].recipe.healthLabels.join(', ')
+    recipeHealth.textContent = recipeData[i].recipe.healthLabels.join("\r\n")
     recipeDiv.append(recipeHealth)
 
-    let recipeIngredients = document.createElement('h5')
-    recipeIngredients.textContent = recipeData[i].recipe.ingredientLines.join("\n")
-    recipeDiv.append(recipeIngredients)
+    let recipeIngredients = document.createElement('h5');
+    recipeIngredients.textContent = recipeData[i].recipe.ingredientLines.join("\r\n")
+    recipeDiv.append(recipeIngredients);
 
     let recipeURL = document.createElement('a')
     recipeURL.href = recipeData[i].recipe.url
