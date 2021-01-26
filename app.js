@@ -42,6 +42,18 @@ const renderRecipes = (recipeData) => {
     recipeImage.src = `${recipeData[i].recipe.image}`
     recipeDiv.append(recipeImage)
 
+    let recipeDiet = document.createElement('h5')
+    recipeDiet.textContent = recipeData[i].recipe.dietLabels.join(', ')
+    recipeDiv.append(recipeDiet)
+
+    let recipeHealth = document.createElement('h5')
+    recipeHealth.textContent = recipeData[i].recipe.healthLabels.join(', ')
+    recipeDiv.append(recipeHealth)
+
+    let recipeIngredients = document.createElement('h5')
+    recipeIngredients.textContent = recipeData[i].recipe.ingredientLines.join("\n")
+    recipeDiv.append(recipeIngredients)
+
     let recipeURL = document.createElement('a')
     recipeURL.href = recipeData[i].recipe.url
     recipeURL.textContent = recipeData[i].recipe.source
