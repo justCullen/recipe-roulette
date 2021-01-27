@@ -2,6 +2,7 @@ const DOMAIN = 'https://api.edamam.com/search?';
 const APP_ID = '52f197ec';
 const APP_KEY = 'ab07ec683eee2c0e4a1bf835c068fd6b';
 const BASE_URL = `${DOMAIN}app_id=${APP_ID}&app_key=${APP_KEY}`;
+const recipeSpot = document.querySelector('#recipe-data')
 
 // Stores the text value of the input
 // invokes getRecipes
@@ -14,8 +15,8 @@ const getCriteria = (e) => {
 // Make the API call with search criteria
 // invokes renderRecipes
 const getRecipes = async (searchTerm) => {
-  if (document.querySelector('#recipe-data').lastChild) {
-    fromValue = parseInt(document.querySelector('#recipe-data').lastChild.querySelector('p').textContent, 10) + 1
+  if (recipeSpot.lastChild) {
+    fromValue = parseInt(recipeSpot.lastChild.querySelector('p').textContent, 10) + 1
     toValue = fromValue + 3
   } else {
     fromValue = 0
@@ -34,18 +35,18 @@ const getRecipes = async (searchTerm) => {
 // Receive response.data.hits, iterate over it and render
 // label, image, dietLabels[array], healthLabels[array],
 // ingredientLines[array], source, url
+// invokes removeRecipes
 const renderRecipes = (recipeData) => {
-  let listAnchor = document.querySelector('#recipe-data')
-  if (document.querySelector('#recipe-data').lastChild) {
-    j = parseInt(document.querySelector('#recipe-data').lastChild.querySelector('p').textContent, 10) + 1
+  if (recipeSpot.lastChild) {
+    j = parseInt(recipeSpot.lastChild.querySelector('p').textContent, 10) + 1
   } else {
     j = 0
   }
-  // removeRecipes()
+  removeRecipes()
   for (let i = 0; i < recipeData.length; i++) {
     let recipeDiv = document.createElement('div')
     recipeDiv.class = 'recipe-bucket'
-    listAnchor.append(recipeDiv)
+    recipeSpot.append(recipeDiv)
 
     let recipeLabel = document.createElement('h4')
     recipeLabel.textContent = recipeData[i].recipe.label
@@ -79,7 +80,16 @@ const renderRecipes = (recipeData) => {
   }
 }
 
+
+
 // Event listener on submit button
 // invokes getCriteria
 const formInput = document.querySelector('form');
 formInput.addEventListener('submit', getCriteria);
+
+// Clear recipes
+const removeRecipes = () => {
+  while (recipeSpot.lastChild) {
+    recipeSpot.removeChild(recipeSpot.lastChild)
+  }
+}
