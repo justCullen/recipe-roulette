@@ -26,6 +26,7 @@ const getRecipes = async (searchTerm) => {
     let searchPhrase = `&q=${searchTerm}`
     let searchRange = `&from=${fromValue}&to=${toValue}`
     let response = await axios.get(BASE_URL + searchPhrase + searchRange)
+    console.log(response.data.hits)
     renderRecipes(response.data.hits)
   } catch (err) {
     console.log(err)
@@ -49,10 +50,12 @@ const renderRecipes = (recipeData) => {
     recipeSpot.append(recipeDiv)
 
     let recipeLabel = document.createElement('h4')
+    recipeLabel.className = 'recipe-label'
     recipeLabel.textContent = recipeData[i].recipe.label
     recipeDiv.append(recipeLabel)
 
     let recipeImage = document.createElement('img')
+    recipeImage.className = 'recipe-image'
     recipeImage.src = recipeData[i].recipe.image
     recipeDiv.append(recipeImage)
 
@@ -66,6 +69,7 @@ const renderRecipes = (recipeData) => {
 
     let recipeIngredients = document.createElement('h5');
     recipeIngredients.textContent = recipeData[i].recipe.ingredientLines.join("\r\n")
+    recipeIngredients.className = 'recipe-ing'
     recipeDiv.append(recipeIngredients);
 
     let recipeURL = document.createElement('a')
@@ -79,8 +83,6 @@ const renderRecipes = (recipeData) => {
     j++
   }
 }
-
-
 
 // Event listener on submit button
 // invokes getCriteria

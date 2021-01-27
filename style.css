@@ -1,3 +1,8 @@
+/* body {
+  display: flex;
+  justify-content: center;
+} */
+
 .page-top {
   display: flex;
   justify-content: center;
@@ -5,9 +10,28 @@
 
 #recipe-data {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-flow: row nowrap;
-  white-space: pre;
+  margin: auto;
+}
+
+.recipe-bucket {
+  width: 32%;
+}
+
+.recipe-label {
+  text-align: center;
+}
+
+.recipe-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+.recipe-ing {
+  white-space: pre-wrap;
 }
 
 p {
