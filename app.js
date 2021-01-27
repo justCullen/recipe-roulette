@@ -12,16 +12,34 @@ const getCriteria = (e) => {
 }
 
 // Make the API call with search criteria
+// uses getRandomInt to generate random # based on result.data.count
+// 
 // invokes renderRecipes
 const getRecipes = async (searchTerm) => {
   try {
-    let searchPhrase = `&from=0&to=3&q=${searchTerm}`
+    let searchPhrase = `&q=${searchTerm}`
     let response = await axios.get(BASE_URL + searchPhrase)
-    // console.log(response.data)
-    renderRecipes(response.data.hits)
+    let upperLimit = response.data.count - 3
+    let randomGen = getRandomInt(0, upperLimit)
+    let maxGen = randomGen + 3
+    let recipeSet = []
+    console.log(response.data.hits)
+    for (let i = randomGen; i < maxGen; i++) {
+      console.log(i)
+      recipeSet.push(response.data.hits[i])
+    }
+    // renderRecipes(recipeSet)
+    console.log(recipeSet)
   } catch (err) {
     console.log(err)
   }
+}
+
+// Randomizer from MDN
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Receive response.data.hits, iterate over it and render
