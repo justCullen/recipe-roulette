@@ -12,22 +12,19 @@ const getCriteria = (e) => {
 }
 
 // Make the API call with search criteria
-// uses getRandomInt to generate random # based on result.data.count
-// 
 // invokes renderRecipes
 const getRecipes = async (searchTerm) => {
   try {
     let searchPhrase = `&q=${searchTerm}`
-    let response = await axios.get(BASE_URL + searchPhrase)
-    // let upperLimit = response.data.count - 3
-    // let randomGen = getRandomInt(0, upperLimit)
-    // let maxGen = randomGen + 3
-    // let recipeSet = []
-    // console.log(response.data.hits)
-    // for (let i = randomGen; i < maxGen; i++) {
-    //   console.log(i)
-    //   recipeSet.push(response.data.hits[i])
+
+    // if (###) {
+    //   let searchRange = `&from=${minRange}&to=${maxRange}`
+    // } else {
+    //   let searchRange = `&from=0&to=3`
     // }
+
+    let response = await axios.get(BASE_URL + searchPhrase)
+    // console.log(response)
     renderRecipes(response.data.hits)
     // console.log(recipeSet)
 
@@ -36,18 +33,12 @@ const getRecipes = async (searchTerm) => {
   }
 }
 
-// Randomizer from MDN
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 // Receive response.data.hits, iterate over it and render
 // label, image, dietLabels[array], healthLabels[array],
 // ingredientLines[array], source, url
 const renderRecipes = (recipeData) => {
   let listAnchor = document.querySelector('#recipe-data')
+  // removeRecipes()
   for (let i = 0; i < recipeData.length; i++) {
     let recipeDiv = document.createElement('div')
     recipeDiv.class = 'recipe-bucket'
@@ -77,6 +68,8 @@ const renderRecipes = (recipeData) => {
     recipeURL.href = recipeData[i].recipe.url
     recipeURL.textContent = recipeData[i].recipe.source
     recipeDiv.append(recipeURL)
+
+
   }
 }
 
