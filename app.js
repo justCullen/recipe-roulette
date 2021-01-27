@@ -45,7 +45,7 @@ const renderRecipes = (recipeData) => {
   removeRecipes()
   for (let i = 0; i < recipeData.length; i++) {
     let recipeDiv = document.createElement('div')
-    recipeDiv.class = 'recipe-bucket'
+    recipeDiv.className = 'recipe-bucket'
     recipeSpot.append(recipeDiv)
 
     let recipeLabel = document.createElement('h4')

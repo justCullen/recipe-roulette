@@ -1,7 +1,19 @@
+.page-top {
+  display: flex;
+  justify-content: center;
+}
+
 #recipe-data {
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
   white-space: pre;
 }
 
 p {
   display: none;
+}
+
+* {
+  border: 1px solid black;
 }
