@@ -19,17 +19,18 @@ const getRecipes = async (searchTerm) => {
   try {
     let searchPhrase = `&q=${searchTerm}`
     let response = await axios.get(BASE_URL + searchPhrase)
-    let upperLimit = response.data.count - 3
-    let randomGen = getRandomInt(0, upperLimit)
-    let maxGen = randomGen + 3
-    let recipeSet = []
-    console.log(response.data.hits)
-    for (let i = randomGen; i < maxGen; i++) {
-      console.log(i)
-      recipeSet.push(response.data.hits[i])
-    }
-    // renderRecipes(recipeSet)
-    console.log(recipeSet)
+    // let upperLimit = response.data.count - 3
+    // let randomGen = getRandomInt(0, upperLimit)
+    // let maxGen = randomGen + 3
+    // let recipeSet = []
+    // console.log(response.data.hits)
+    // for (let i = randomGen; i < maxGen; i++) {
+    //   console.log(i)
+    //   recipeSet.push(response.data.hits[i])
+    // }
+    renderRecipes(response.data.hits)
+    // console.log(recipeSet)
+
   } catch (err) {
     console.log(err)
   }
