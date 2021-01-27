@@ -14,20 +14,18 @@ const getCriteria = (e) => {
 // Make the API call with search criteria
 // invokes renderRecipes
 const getRecipes = async (searchTerm) => {
+  if (document.querySelector('#recipe-data').lastChild) {
+    fromValue = parseInt(document.querySelector('#recipe-data').lastChild.querySelector('p').textContent, 10) + 1
+    toValue = fromValue + 3
+  } else {
+    fromValue = 0
+    toValue = 3
+  }
   try {
     let searchPhrase = `&q=${searchTerm}`
-
-    // if (###) {
-    //   let searchRange = `&from=${minRange}&to=${maxRange}`
-    // } else {
-    //   let searchRange = `&from=0&to=3`
-    // }
-
-    let response = await axios.get(BASE_URL + searchPhrase)
-    // console.log(response)
+    let searchRange = `&from=${fromValue}&to=${toValue}`
+    let response = await axios.get(BASE_URL + searchPhrase + searchRange)
     renderRecipes(response.data.hits)
-    // console.log(recipeSet)
-
   } catch (err) {
     console.log(err)
   }
@@ -38,6 +36,11 @@ const getRecipes = async (searchTerm) => {
 // ingredientLines[array], source, url
 const renderRecipes = (recipeData) => {
   let listAnchor = document.querySelector('#recipe-data')
+  if (document.querySelector('#recipe-data').lastChild) {
+    j = parseInt(document.querySelector('#recipe-data').lastChild.querySelector('p').textContent, 10) + 1
+  } else {
+    j = 0
+  }
   // removeRecipes()
   for (let i = 0; i < recipeData.length; i++) {
     let recipeDiv = document.createElement('div')
@@ -69,7 +72,10 @@ const renderRecipes = (recipeData) => {
     recipeURL.textContent = recipeData[i].recipe.source
     recipeDiv.append(recipeURL)
 
-
+    let trackNum = document.createElement('p')
+    trackNum.textContent = j
+    recipeDiv.append(trackNum)
+    j++
   }
 }
 
