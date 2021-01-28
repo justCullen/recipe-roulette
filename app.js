@@ -50,7 +50,7 @@ const renderRecipes = (recipeData) => {
     recipeDiv.className = 'recipe-bucket'
     recipeSpot.append(recipeDiv)
 
-    let recipeLabel = document.createElement('h4')
+    let recipeLabel = document.createElement('h3')
     recipeLabel.className = 'recipe-label'
     recipeLabel.textContent = recipeData[i].recipe.label
     recipeDiv.append(recipeLabel)
@@ -62,12 +62,12 @@ const renderRecipes = (recipeData) => {
 
     let recipeDiet = document.createElement('h5')
     recipeDiet.className = 'diet'
-    recipeDiet.textContent = recipeData[i].recipe.dietLabels.join("\r\n")
+    recipeDiet.textContent = recipeData[i].recipe.dietLabels.join(",\r\n")
     recipeDiv.append(recipeDiet)
 
     let recipeHealth = document.createElement('h5')
     recipeHealth.className = 'health'
-    recipeHealth.textContent = recipeData[i].recipe.healthLabels.join("\r\n")
+    recipeHealth.textContent = recipeData[i].recipe.healthLabels.join(",\r\n")
     recipeDiv.append(recipeHealth)
 
     let ingButton = document.createElement('button')
