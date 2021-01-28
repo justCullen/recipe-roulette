@@ -26,7 +26,7 @@ const getRecipes = async (searchTerm) => {
     let searchPhrase = `&q=${searchTerm}`
     let searchRange = `&from=${fromValue}&to=${toValue}`
     let response = await axios.get(BASE_URL + searchPhrase + searchRange)
-    console.log(response.data.hits)
+    // console.log(response.data.hits)
     renderRecipes(response.data.hits)
   } catch (err) {
     console.log(err)
@@ -67,9 +67,17 @@ const renderRecipes = (recipeData) => {
     recipeHealth.textContent = recipeData[i].recipe.healthLabels.join("\r\n")
     recipeDiv.append(recipeHealth)
 
+    let ingButton = document.createElement('button')
+    ingButton.type = 'button'
+    ingButton.name = 'button'
+    ingButton.value = 'button'
+    ingButton.innerText = 'Show/Hide'
+    ingButton.className = `ing-button`
+    recipeDiv.append(ingButton)
+
     let recipeIngredients = document.createElement('h5');
     recipeIngredients.textContent = recipeData[i].recipe.ingredientLines.join("\r\n")
-    recipeIngredients.className = 'recipe-ing'
+    recipeIngredients.className = `recipe-ing`
     recipeDiv.append(recipeIngredients);
 
     let recipeURL = document.createElement('a')
@@ -81,6 +89,15 @@ const renderRecipes = (recipeData) => {
     trackNum.textContent = j
     recipeDiv.append(trackNum)
     j++
+
+    const showHideIng = () => {
+      // console.log('clicked!')
+      ingListing = document.querySelector(`.recipe-ing`)
+      ingListing.className = 'hide-it'
+    }
+    
+    const ingButtonListener = document.querySelector(`.ing-button`);
+    ingButtonListener.addEventListener('click', showHideIng);
   }
 }
 
@@ -95,3 +112,12 @@ const removeRecipes = () => {
     recipeSpot.removeChild(recipeSpot.lastChild)
   }
 }
+
+// const showHideIng = () => {
+//   console.log('clicked!')
+//   ingListing = document.querySelector('.recipe-0')
+//   ingListing.className = 'hide-it'
+// }
+
+// const ingButton = document.querySelector('.ing-button-0');
+// ingButton.addEventListener('click', showHideIng);
