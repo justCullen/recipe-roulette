@@ -3,6 +3,7 @@ const APP_ID = '52f197ec';
 const APP_KEY = 'ab07ec683eee2c0e4a1bf835c068fd6b';
 const BASE_URL = `${DOMAIN}app_id=${APP_ID}&app_key=${APP_KEY}`;
 const recipeSpot = document.querySelector('#recipe-data')
+const body = document.body;
 
 // Stores the text value of the input
 // invokes getRecipes
@@ -60,10 +61,12 @@ const renderRecipes = (recipeData) => {
     recipeDiv.append(recipeImage)
 
     let recipeDiet = document.createElement('h5')
+    recipeDiet.className = 'diet'
     recipeDiet.textContent = recipeData[i].recipe.dietLabels.join("\r\n")
     recipeDiv.append(recipeDiet)
 
     let recipeHealth = document.createElement('h5')
+    recipeHealth.className = 'health'
     recipeHealth.textContent = recipeData[i].recipe.healthLabels.join("\r\n")
     recipeDiv.append(recipeHealth)
 
@@ -71,13 +74,15 @@ const renderRecipes = (recipeData) => {
     ingButton.type = 'button'
     ingButton.name = 'button'
     ingButton.value = 'button'
-    ingButton.innerText = 'Show/Hide'
-    ingButton.className = `ing-button`
+    ingButton.innerText = 'Ingredients'
+    ingButton.className = `ing-button-${i}`
     recipeDiv.append(ingButton)
 
     let recipeIngredients = document.createElement('h5');
     recipeIngredients.textContent = recipeData[i].recipe.ingredientLines.join("\r\n")
-    recipeIngredients.className = `recipe-ing`
+    recipeIngredients.className = 'ingredients'
+    recipeIngredients.classList.add(`recipe-ing-${i}`)
+    recipeIngredients.classList.add(`hide-it-${i}`)
     recipeDiv.append(recipeIngredients);
 
     let recipeURL = document.createElement('a')
@@ -89,15 +94,6 @@ const renderRecipes = (recipeData) => {
     trackNum.textContent = j
     recipeDiv.append(trackNum)
     j++
-
-    const showHideIng = () => {
-      // console.log('clicked!')
-      ingListing = document.querySelector(`.recipe-ing`)
-      ingListing.className = 'hide-it'
-    }
-    
-    const ingButtonListener = document.querySelector(`.ing-button`);
-    ingButtonListener.addEventListener('click', showHideIng);
   }
 }
 
@@ -113,11 +109,27 @@ const removeRecipes = () => {
   }
 }
 
-// const showHideIng = () => {
-//   console.log('clicked!')
-//   ingListing = document.querySelector('.recipe-0')
-//   ingListing.className = 'hide-it'
-// }
-
-// const ingButton = document.querySelector('.ing-button-0');
-// ingButton.addEventListener('click', showHideIng);
+body.addEventListener('click', (e) => {
+  const recipe0 = document.querySelector('.recipe-ing-0')
+  const recipe1 = document.querySelector('.recipe-ing-1')
+  const recipe2 = document.querySelector('.recipe-ing-2')
+  if (e.target === document.querySelector('.ing-button-0')) {
+    if (document.querySelector(".hide-it-0")) {
+      recipe0.classList.remove('hide-it-0')
+    } else {
+      recipe0.classList.add('hide-it-0')
+    }
+  } else if (e.target === document.querySelector('.ing-button-1')) {
+    if (document.querySelector(".hide-it-1")) {
+      recipe1.classList.remove('hide-it-1')
+    } else {
+      recipe1.classList.add('hide-it-1')
+    }
+  } else if (e.target === document.querySelector('.ing-button-2')) {
+    if (document.querySelector(".hide-it-2")) {
+      recipe2.classList.remove('hide-it-2')
+    } else {
+      recipe2.classList.add('hide-it-2')
+    }
+  }
+})
