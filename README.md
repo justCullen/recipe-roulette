@@ -87,10 +87,10 @@ Edamam Recipe API
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Jan 25-26| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|Jan 26| Project Approval | Incomplete
-|Jan 27| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Jan 28| Initial Clickable Model  | Incomplete
+|Jan 25-26| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
+|Jan 26| Project Approval | Complete
+|Jan 27| Core Application Structure (HTML, CSS, etc.) | Complete
+|Jan 28| Initial Clickable Model  | Complete
 |Jan 29| MVP | Incomplete
 |Jan 30| Basic CSS/Layout | Incomplete
 |Jan 31| Animations/Colors/Make it pretty | Incomplete
@@ -104,16 +104,17 @@ Edamam Recipe API
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| HTML | H | 3h | ~ | ~ |
-| JS - Call API | H | 3h | ~ | ~ |
-| JS - Append API Results | H | 3h | ~ | ~ |
-| JS - Search Randomizer | H | 3h | ~ | ~ |
-| JS - Shuffle Button | H | 4h | ~ | ~ |
-| CSS - Basic Layout | H | 6h | ~ | ~ |
-| CSS - Colorway | M | 4h | ~ | ~ |
+| HTML | H | 3h | 1h | ~ |
+| JS - Call API | H | 3h | 2h | ~ |
+| JS - Append API Results | H | 3h | 2.5h | ~ |
+| JS - Search Randomizer/Incrementer | H | 3h | 4h | ~ |
+| JS - Shuffle Button | H | 4h | N/A | ~ |
+| JS - Show/Hide Ingr. | L | 3h | ~ | ~ |
+| CSS - Basic Layout | H | 6h | 3h | ~ |
+| CSS - Colorways | M | 4h | ~ | ~ |
 | CSS - Animations | L | 8h | ~ | ~ |
 | Debugging/Refactoring | H | 6h | ~ | ~ |
-| Total | H | 40h | ~ | ~ |
+| Total | H | 40h | 12.5 | ~ |
 
 ## Code Snippet
 
