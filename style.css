@@ -1,13 +1,11 @@
 body {
-  /* background-color: #e76f51; */
-  background-color: #fefae0;
+  background-color: #e5e5e5;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .page-top {
   display: flex;
   justify-content: center;
-  /* color: #13242A; */
   color: #3e2913
 }
 
@@ -19,10 +17,14 @@ body {
   color: #3e2913
 }
 
+.anim-info {
+  animation-name: slide-in;
+  animation-duration: 2s;
+}
+
 .info {
   display: flex;
   justify-content: center;
-  /* margin-left: auto; */
   font-weight: bold;
 }
 
@@ -35,12 +37,10 @@ body {
 
 .recipe-bucket {
   width: 32%;
-  /* background-color: #e9c46a; */
   background-color: #e9edc9;
-  /* border: 3px solid #2a9d8f; */
   border: 3px solid #99ac5d;
   border-radius: 10px;
-  filter: drop-shadow(3px 3px 2px #000000)
+  filter: drop-shadow(3px 3px 4px #000000)
 }
 
 .recipe-label {
@@ -69,6 +69,7 @@ body {
   color: #13242A;
 }
 
+/* "white-space: pre-wrap" found on Stack Overflow */
 .ingredients {
   white-space: pre-wrap;
   padding-left: 5px;
@@ -87,24 +88,14 @@ body {
 .hide-it-0,
 .hide-it-1,
 .hide-it-2,
+.hide-it-num,
 .hide-it-info {
   display: none;
 }
 
-/* button { */
-  /* color: aqua;
-  background-color: brown; */
-  /* margin: 0px 0px 0px 5px;
-  color: #13242A;
-} */
-
 a {
   display: block;
   text-align: center;
-}
-
-.hidden-num {
-  display: none;
 }
 
 @media screen and (max-width: 425px) {
@@ -116,6 +107,15 @@ a {
   }
 }
 
-/* * {
-  color: #13242A;
-} */
+/* animation pulled from MDN and modified to fit */
+@keyframes slide-in {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    justify-content: center;
+    width: 100%;
+  }
+}
