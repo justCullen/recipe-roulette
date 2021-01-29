@@ -13,15 +13,16 @@ body {
 
 #search-box {
   display: flex;
-  justify-content: flex-start;
-  height: 30px;
+  justify-content: center;
+  height: 50px;
   margin-top: 10px;
-  margin-left: 325px;
   color: #3e2913
 }
 
 .info {
-  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  /* margin-left: auto; */
   font-weight: bold;
 }
 
@@ -52,6 +53,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   max-width: 98%;
+  border: 3px solid #99ac5d;
+  border-radius: 5px;
 }
 
 .diet {
@@ -72,10 +75,13 @@ body {
   color: #13242A;
 }
 
-.ing-button-0,
-.ing-button-1,
-.ing-button-2 {
+.ing-button {
   display: block;
+  background-color: #fefae0;
+  color: #13242A;
+  border: 3px solid #99ac5d;
+  border-radius: 5px;
+  margin-left: 5px;
 }
 
 .hide-it-0,
@@ -85,12 +91,12 @@ body {
   display: none;
 }
 
-button {
+/* button { */
   /* color: aqua;
   background-color: brown; */
-  margin: 0px 0px 0px 5px;
+  /* margin: 0px 0px 0px 5px;
   color: #13242A;
-}
+} */
 
 a {
   display: block;

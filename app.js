@@ -77,11 +77,9 @@ const renderRecipes = (recipeData) => {
     recipeDiv.append(recipeHealth)
 
     let ingButton = document.createElement('button')
-    ingButton.type = 'button'
-    ingButton.name = 'button'
-    ingButton.value = 'button'
     ingButton.innerText = 'Ingredients'
     ingButton.className = `ing-button-${i}`
+    ingButton.classList.add('ing-button')
     recipeDiv.append(ingButton)
 
     let recipeIngredients = document.createElement('h5');
@@ -92,6 +90,7 @@ const renderRecipes = (recipeData) => {
     recipeDiv.append(recipeIngredients);
 
     let recipeURL = document.createElement('a')
+    recipeURL.target = "_blank"
     recipeURL.href = recipeData[i].recipe.url
     recipeURL.textContent = recipeData[i].recipe.source
     recipeDiv.append(recipeURL)
