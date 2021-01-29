@@ -27,7 +27,7 @@ const getRecipes = async (searchTerm) => {
     let searchPhrase = `&q=${searchTerm}`
     let searchRange = `&from=${fromValue}&to=${toValue}`
     let response = await axios.get(BASE_URL + searchPhrase + searchRange)
-    // console.log(response.data.hits)
+    // console.log(response)
     renderRecipes(response.data.hits)
   } catch (err) {
     console.log(err)
@@ -44,7 +44,13 @@ const renderRecipes = (recipeData) => {
   } else {
     j = 0
   }
+
   removeRecipes()
+
+  if (document.querySelector(".hide-it-info")) {
+    document.querySelector(".hide-it-info").classList.remove('hide-it-info')
+  }
+
   for (let i = 0; i < recipeData.length; i++) {
     let recipeDiv = document.createElement('div')
     recipeDiv.className = 'recipe-bucket'
@@ -91,6 +97,7 @@ const renderRecipes = (recipeData) => {
     recipeDiv.append(recipeURL)
 
     let trackNum = document.createElement('p')
+    trackNum.className = 'hidden-num'
     trackNum.textContent = j
     recipeDiv.append(trackNum)
     j++

@@ -110,11 +110,11 @@ Edamam Recipe API
 | JS - Search Randomizer/Incrementer | H | 3h | 4h | ~ |
 | JS - Shuffle Button | H | 4h | N/A | ~ |
 | JS - Show/Hide Ingr. | L | 3h | ~ | ~ |
-| CSS - Basic Layout | H | 6h | 8h | ~ |
-| CSS - Colorways | M | 4h | 1h | ~ |
+| CSS - Basic Layout | H | 6h | 8.5h | ~ |
+| CSS - Colorways | M | 4h | 1.5h | ~ |
 | CSS - Animations | L | 8h | ~ | ~ |
 | Debugging/Refactoring | H | 6h | ~ | ~ |
-| Total | H | 40h | 18.5h | ~ |
+| Total | H | 40h | 19.5h | ~ |
 
 ## Code Snippet
 
@@ -127,5 +127,6 @@ function reverse(string) {
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes. 
+My initial idea was to display a random set of 3 recipes with one API call. In order for the set to be truly random, I needed to make two API calls. One to return a count of all results matching the search criteria. I could use that number to generate a random integer, and then perform a second search with that random integer as a base.
 
+Because I wanted to avoid performing two calls every time a user performed a search and because my API has a limit of 5 calls per minute, I decided to abandon the random idea. Now the search button returns a set of 3 recipes. A second press of the search button returns the next set of 3, and so on.
