@@ -109,8 +109,8 @@ Edamam Recipe API
 | JS - Append API Results | H | 3h | 2.5h | ~ |
 | JS - Search Randomizer/Incrementer | H | 3h | 4h | ~ |
 | JS - Shuffle Button | H | 4h | N/A | ~ |
-| JS - Show/Hide Ingr. | L | 3h | ~ | ~ |
-| CSS - Basic Layout | H | 6h | 9h | ~ |
+| JS - Show/Hide Ingr. | L | 3h | 3h | ~ |
+| CSS - Basic Layout | H | 6h | 6h | ~ |
 | CSS - Colorways | M | 4h | 2h | ~ |
 | CSS - Animations | L | 8h | 1.5h | ~ |
 | Debugging/Refactoring | H | 6h | ~ | ~ |
