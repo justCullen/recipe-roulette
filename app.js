@@ -54,7 +54,7 @@ const renderRecipes = (recipeData) => {
     let recipeDiv = document.createElement('div')
     recipeDiv.className = 'recipe-bucket'
     recipeSpot.append(recipeDiv)
-    let recipeLabel = document.createElement('h3')
+    let recipeLabel = document.createElement('h2')
     recipeLabel.className = 'recipe-label'
     recipeLabel.textContent = recipeData[i].recipe.label
     recipeDiv.append(recipeLabel)
@@ -62,11 +62,11 @@ const renderRecipes = (recipeData) => {
     recipeImage.className = 'recipe-image'
     recipeImage.src = recipeData[i].recipe.image
     recipeDiv.append(recipeImage)
-    let recipeDiet = document.createElement('h5')
+    let recipeDiet = document.createElement('h4')
     recipeDiet.className = 'diet'
     recipeDiet.textContent = recipeData[i].recipe.dietLabels.join(",\r\n")
     recipeDiv.append(recipeDiet)
-    let recipeHealth = document.createElement('h5')
+    let recipeHealth = document.createElement('h4')
     recipeHealth.className = 'health'
     recipeHealth.textContent = recipeData[i].recipe.healthLabels.join(",\r\n")
     recipeDiv.append(recipeHealth)
@@ -75,7 +75,7 @@ const renderRecipes = (recipeData) => {
     ingButton.className = `ing-button-${i}`
     ingButton.classList.add('ing-button')
     recipeDiv.append(ingButton)
-    let recipeIngredients = document.createElement('h5');
+    let recipeIngredients = document.createElement('h4');
     recipeIngredients.textContent = recipeData[i].recipe.ingredientLines.join("\r\n")
     recipeIngredients.className = 'ingredients'
     recipeIngredients.classList.add(`recipe-ing-${i}`)

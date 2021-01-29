@@ -1,12 +1,14 @@
 body {
   background-color: #e5e5e5;
+  background-image: url("https://i.imgur.com/XThZOUQ.jpg");
+  background-size: cover;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .page-top {
   display: flex;
   justify-content: center;
-  color: #3e2913
+  color: #3e2913;
 }
 
 #search-box {
@@ -14,7 +16,7 @@ body {
   justify-content: center;
   height: 50px;
   margin-top: 10px;
-  color: #3e2913
+  color: #3e2913;
 }
 
 .anim-info {
@@ -37,10 +39,10 @@ body {
 
 .recipe-bucket {
   width: 32%;
-  background-color: #e9edc9;
+  background-color: #ebebeb;
   border: 3px solid #99ac5d;
   border-radius: 10px;
-  filter: drop-shadow(3px 3px 4px #000000)
+  filter: drop-shadow(3px 3px 4px #000000);
 }
 
 .recipe-label {

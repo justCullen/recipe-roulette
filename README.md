@@ -111,10 +111,10 @@ Edamam Recipe API
 | JS - Shuffle Button | H | 4h | N/A | ~ |
 | JS - Show/Hide Ingr. | L | 3h | ~ | ~ |
 | CSS - Basic Layout | H | 6h | 9h | ~ |
-| CSS - Colorways | M | 4h | 1.5h | ~ |
-| CSS - Animations | L | 8h | 1h | ~ |
+| CSS - Colorways | M | 4h | 2h | ~ |
+| CSS - Animations | L | 8h | 1.5h | ~ |
 | Debugging/Refactoring | H | 6h | ~ | ~ |
-| Total | H | 40h | 21h | ~ |
+| Total | H | 40h | 22h | ~ |
 
 ## Code Snippet
 
