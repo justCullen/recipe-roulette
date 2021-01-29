@@ -91,9 +91,9 @@ Edamam Recipe API
 |Jan 26| Project Approval | Complete
 |Jan 27| Core Application Structure (HTML, CSS, etc.) | Complete
 |Jan 28| Initial Clickable Model  | Complete
-|Jan 29| MVP | Incomplete
-|Jan 30| Basic CSS/Layout | Incomplete
-|Jan 31| Animations/Colors/Make it pretty | Incomplete
+|Jan 29| MVP | Complete
+|Jan 30| Basic CSS/Layout | Complete
+|Jan 31| Animations/Colors/Make it pretty(?) | Incomplete
 |Feb 1| Presentations/Project Submission | Incomplete
 
 ## Priority Matrix
