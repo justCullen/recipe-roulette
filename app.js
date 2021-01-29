@@ -28,6 +28,7 @@ const getRecipes = async (searchTerm) => {
     let searchRange = `&from=${fromValue}&to=${toValue}`
     let response = await axios.get(BASE_URL + searchPhrase + searchRange)
     renderRecipes(response.data.hits)
+    
   } catch (err) {
     console.log(err)
   }
