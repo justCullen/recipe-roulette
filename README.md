@@ -93,8 +93,8 @@ Edamam Recipe API
 |Jan 28| Initial Clickable Model  | Complete
 |Jan 29| MVP | Complete
 |Jan 30| Basic CSS/Layout | Complete
-|Jan 31| Animations/Colors/Make it pretty(?) | Incomplete
-|Feb 1| Presentations/Project Submission | Incomplete
+|Jan 31| Animations/Colors | Complete
+|Feb 1| Presentations/Project Submission | Complete
 
 ## Priority Matrix
 
@@ -118,15 +118,31 @@ Edamam Recipe API
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
-
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
+// updates and sets fromValue and toValue for API call
+// invokes renderRecipes
+const getRecipes = async (searchTerm) => {
+  if (recipeSpot.lastChild) {
+    fromValue = parseInt(recipeSpot.lastChild.querySelector('p').textContent, 10) + 1
+    toValue = fromValue + 3
+  } else {
+    fromValue = 0
+    toValue = 3
+  }
+  try {
+    let searchPhrase = `&q=${searchTerm}`
+    let searchRange = `&from=${fromValue}&to=${toValue}`
+    let response = await axios.get(BASE_URL + searchPhrase + searchRange)
+    renderRecipes(response.data.hits)
+    
+  } catch (err) {
+    console.log(err)
+  }
 }
 ```
 
 ## Change Log
+
 My initial idea was to display a random set of 3 recipes with one API call. In order for the set to be truly random, I needed to make two API calls. One to return a count of all results matching the search criteria. I could use that number to generate a random integer, and then perform a second search with that random integer as a base.
 
 Because I wanted to avoid performing two calls every time a user performed a search and because my API has a limit of 5 calls per minute, I decided to abandon the random idea. Now the search button returns a set of 3 recipes. A second press of the search button returns the next set of 3, and so on.

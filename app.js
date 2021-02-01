@@ -14,6 +14,7 @@ const getCriteria = (e) => {
 }
 
 // Make the API call with search criteria
+// updates and sets fromValue and toValue for API call
 // invokes renderRecipes
 const getRecipes = async (searchTerm) => {
   if (recipeSpot.lastChild) {
@@ -100,7 +101,7 @@ const renderRecipes = (recipeData) => {
 const formInput = document.querySelector('form');
 formInput.addEventListener('submit', getCriteria);
 
-// Clear recipes
+// Clear results
 const removeRecipes = () => {
   while (recipeSpot.lastChild) {
     recipeSpot.removeChild(recipeSpot.lastChild)
